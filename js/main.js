@@ -13,6 +13,9 @@ function renderTasks() {
 
     for (task of tasks) {
 
+        //
+        listTotal.innerHTML = ''
+
         //Creates the list item
         let itemList = document.createElement('li')
 
