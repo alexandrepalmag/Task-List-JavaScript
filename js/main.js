@@ -48,6 +48,9 @@ document.getElementById('thisButton').addEventListener('click', () => {
         tasks.push(newTask)
 
         renderTasks()
+
+        removeSpanWarning()
+
     } else {
 
         let cardMain = document.querySelector(".card")
@@ -67,3 +70,17 @@ document.getElementById('thisButton').addEventListener('click', () => {
     inputField.value = ''
 
 })
+
+function removeSpanWarning() {
+
+    let spans = document.querySelectorAll('span')
+
+    let card = document.querySelector('.card')
+
+    for (let i = 0; i < spans.length; i++) {
+
+        card.removeChild(spans[i])
+
+    }
+
+}
