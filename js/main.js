@@ -11,10 +11,10 @@ let tasks = [
 
 function renderTasks() {
 
-    for (task of tasks) {
+    //clears the list before inserting a new element to avoid duplication
+    listTotal.innerHTML = ''
 
-        //
-        listTotal.innerHTML = ''
+    for (task of tasks) {
 
         //Creates the list item
         let itemList = document.createElement('li')
@@ -28,7 +28,7 @@ function renderTasks() {
         //Adds text to the list item
         itemList.appendChild(itemText)
 
-        //Adds the list item to the list
+        //Adds the list item to the list 
         listTotal.appendChild(itemList)
 
     }
@@ -37,12 +37,16 @@ function renderTasks() {
 
 renderTasks()
 
-document.getElementById('thisButton').addEventListener('click', function () {
+document.getElementById('thisButton').addEventListener('click', () => {
+
+    event.preventDefault()
 
     let newTask = inputField.value
 
     tasks.push(newTask)
 
     renderTasks()
+
+    inputField.value = ''
 
 })
