@@ -19,8 +19,14 @@ function renderTasks() {
         //Add classes to the list item
         itemList.setAttribute('class', 'list-group-item list-group-item-action')
 
-        //
+        //Creates text
         let itemText = document.createTextNode(task)
+
+        //Adds text to the list item
+        itemList.appendChild(itemText)
+
+        //Adds the list item to the list
+        listTotal.appendChild(itemList)
 
     }
 
