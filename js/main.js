@@ -33,3 +33,13 @@ function renderTasks() {
 }
 
 renderTasks()
+
+document.getElementById('thisButton').addEventListener('click', function () {
+
+    let newTask = inputField.value
+
+    tasks.push(newTask)
+
+    renderTasks()
+
+})
