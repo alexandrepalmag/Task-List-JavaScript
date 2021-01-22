@@ -43,9 +43,26 @@ document.getElementById('thisButton').addEventListener('click', () => {
 
     let newTask = inputField.value
 
-    tasks.push(newTask)
+    if (newTask !== '') {
 
-    renderTasks()
+        tasks.push(newTask)
+
+        renderTasks()
+    } else {
+
+        let cardMain = document.querySelector(".card")
+
+        let spanElement = document.createElement('span')
+
+        spanElement.setAttribute('class', 'alert alert-warning')
+
+        let msgError = document.createTextNode('Please inform the task!')
+
+        spanElement.appendChild(msgError)
+
+        cardMain.appendChild(spanElement)
+
+    }
 
     inputField.value = ''
 
