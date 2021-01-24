@@ -22,6 +22,11 @@ function renderTasks() {
         //Add classes to the list item
         itemList.setAttribute('class', 'list-group-item list-group-item-action')
 
+        //Add click event on list item
+        itemList.onclick = function() {
+            deletetask(this)
+        }
+
         //Creates text
         let itemText = document.createTextNode(task)
 
