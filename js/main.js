@@ -53,6 +53,8 @@ document.getElementById('thisButton').addEventListener('click', () => {
 
     } else {
 
+        removeSpanWarning()
+
         let cardMain = document.querySelector(".card")
 
         let spanElement = document.createElement('span')
@@ -83,4 +85,13 @@ function removeSpanWarning() {
 
     }
 
+}
+
+function deletetask(taskToBeRemoved) {
+
+    //Remove the task from the array
+    tasks.splice(tasks.indexOf(taskToBeRemoved.textContent, 1))
+
+    //render
+    renderTasks()
 }
