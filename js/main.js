@@ -2,12 +2,7 @@ let inputField = document.getElementById('task-register')
 let btnRegister = document.getElementById('thisButton')
 let listTotal = document.getElementById('list')
 
-let tasks = [
-
-    'make a coffe',
-    'make a tea'
-
-]
+let tasks = JSON.parse(localStorage.getItem('db_task'))
 
 function renderTasks() {
 
@@ -23,8 +18,12 @@ function renderTasks() {
         itemList.setAttribute('class', 'list-group-item list-group-item-action')
 
         //Add click event on list item
-        itemList.onclick = function() {
-            deletetask(this)
+        itemList.onclick = function () {
+
+            deleteTask(this)
+
+            event.stopPropagation()
+
         }
 
         //Creates text
@@ -55,6 +54,8 @@ document.getElementById('thisButton').addEventListener('click', () => {
         renderTasks()
 
         removeSpanWarning()
+
+        saveDataStorage()
 
     } else {
 
@@ -92,11 +93,19 @@ function removeSpanWarning() {
 
 }
 
-function deletetask(taskToBeRemoved) {
+function deleteTask(taskToBeRemoved) {
 
     //Remove the task from the array
     tasks.splice(tasks.indexOf(taskToBeRemoved.textContent, 1))
 
     //render
     renderTasks()
+
+    saveDataStorage()
+}
+
+function saveDataStorage() {
+
+    localStorage.setItem(db_task, JSON.stringify(task))
+
 }
